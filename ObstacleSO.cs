@@ -6,8 +6,8 @@ public class ObstacleSO : ScriptableObject
 {
     public new string name;
 
-    public Sprite artwork;
+    public Object modelObj;
 
-    public int attack;
+    public int attackValue;
 
 }

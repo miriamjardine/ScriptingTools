@@ -1,3 +1,4 @@
+using System;
 using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.Events;
@@ -8,7 +9,7 @@ public class FloatData : ScriptableObject
 {
   public UnityEvent onZeroEvent;
   public float value;
-
+  
   public void UpdateValue(float num)
   {
     value += num;

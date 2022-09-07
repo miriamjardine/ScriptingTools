@@ -1,29 +1,38 @@
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.Events;
+
 
 [CreateAssetMenu]
 
 public class IntData : ScriptableObject
 {
     public int value;
+    public UnityEvent disableEvent;
 
     public void UpdateValue(int num)
     {
         value += num;
     }
 
+    public void CompareValue(IntData obj)
+    {
+        if (value >= obj.value) 
+        {
+            
+        }
+        else
+        {
+            value = obj.value;
+        }
+    }
     public void ReplaceValue(int num)
     {
         value = num;
     }
 
-    public void DisplayImage(Image img)
+    public void ReplaceValue(IntData obj)
     {
-        img.fillAmount = value;
+        value = obj.value;
     }
 
-    public void DisplayNumber(Text txt)
-    {
-        txt.text = value.ToString();
-    }
 }

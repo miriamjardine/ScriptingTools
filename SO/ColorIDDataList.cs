@@ -1,3 +1,4 @@
+
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,9 +11,14 @@ public class ColorIDDataList : ScriptableObject
 
    private int num;
 
+   public void Awake()
+   {
+      SetCurrentColorRandom();
+   }
+
    public void SetCurrentColorRandom()
    {
-      num = colorIDDataList.Count-1;
+      num = Random.Range(0, colorIDDataList.Count - 1);
       currentColor = colorIDDataList[num];
    }
 }

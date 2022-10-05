@@ -11,4 +11,9 @@ public class DestroyBehaviour : MonoBehaviour
        yield return wfsobj;
        Destroy(gameObject);
    }
+
+   private void OnTriggerEnter(Collider other)
+   {
+       Destroy(gameObject);
+   }
 }

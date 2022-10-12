@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1507074d7dfc852489ca3e929bd96f6f, type: 3}
   m_Name: Score
   m_EditorClassIdentifier: 
-  value: 80
+  value: 0
   disableEvent:
     m_PersistentCalls:
       m_Calls: []

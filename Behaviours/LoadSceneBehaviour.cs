@@ -8,4 +8,9 @@ public class LoadSceneBehaviour : MonoBehaviour
         SceneManager.LoadScene("Car1", LoadSceneMode.Single);
     }
 
+    public void LoadMenu()
+    {
+        SceneManager.LoadScene("Menu", LoadSceneMode.Single);
+    }
+
 }

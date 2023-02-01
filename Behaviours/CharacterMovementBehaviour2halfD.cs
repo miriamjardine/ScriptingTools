@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
-public class CharacterMovementBehaviour : MonoBehaviour
+public class CharacterMovementBehaviour2halfD : MonoBehaviour
 {
    private CharacterController charctrl;
    private Vector3 movement;

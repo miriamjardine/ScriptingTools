@@ -5,7 +5,7 @@ public class LoadSceneBehaviour : MonoBehaviour
 {
     public void LoadCarOne()
     {
-        SceneManager.LoadScene("Car1", LoadSceneMode.Single);
+        SceneManager.LoadScene("Cab1", LoadSceneMode.Single);
     }
 
     public void LoadMenu()

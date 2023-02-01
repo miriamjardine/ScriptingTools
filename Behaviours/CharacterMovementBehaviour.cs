@@ -1,16 +1,16 @@
 using UnityEngine;
-using UnityEngine.UIElements;
 
 [RequireComponent(typeof(CharacterController))]
 public class CharacterMovementBehaviour : MonoBehaviour
 {
    private CharacterController charctrl;
    private Vector3 movement;
-   public FloatData speed;
-   public float jumpForce;
-   public float gravity;
-   private float jumpCount = 0;
-   private float jumpCountMax = 2;
+   public float speed;
+   private float jumpHeight = 3f;
+   private float gravity = 4f;
+   private int jumpCount = 0;
+   private int jumpCountMax = 2;
+
 
    public enum AxisInputs
    {
@@ -30,35 +30,27 @@ public class CharacterMovementBehaviour : MonoBehaviour
        movement.Set(Input.GetAxis(horizontalInput.ToString()), 
                     0, 
                     0);
-       movement *= speed.value;
+       movement *= speed;
        movement *= Time.deltaTime;
        charctrl.Move(movement);
-
-       if (Input.GetKeyDown(KeyCode.S))
-       {
-           Jump();
-       }
-   }
-
-   private void Jump()
-   {
-       if (charctrl.isGrounded)
-       {
-           movement.y = 0;
-           jumpCount = 0;
-       }
-
-       if (jumpCount < jumpCountMax && Input.GetKeyDown(KeyCode.S))
-       {
-           movement.y = jumpForce;
-           jumpCount++;
-           movement.y -= gravity * Time.deltaTime;
-           charctrl.Move(movement * Time.deltaTime);
-       }
        
-       Debug.Log("Jump Method Complete");
+     
+           if (Input.GetKeyDown(KeyCode.W) && jumpCount < jumpCountMax)
+           {
+               movement.y = jumpHeight;
+               Debug.Log("Jump Method Complete");
+               jumpCount++;
+           }
+           movement.y -= gravity*Time.deltaTime;
+           charctrl.Move(movement);
 
+           if (charctrl.isGrounded)
+           {
+               movement.y = 0;
+               jumpCount = 0;
+           }
    }
+   
   
 
-}
+} 

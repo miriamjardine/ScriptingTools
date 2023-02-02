@@ -7,18 +7,18 @@ public class CharacterMovementBehaviour2halfD : MonoBehaviour
    private Vector3 movement;
    public float speed;
    private float jumpHeight = 3f;
-   private float gravity = 4f;
+   private float gravity = 5f;
    private int jumpCount = 0;
    private int jumpCountMax = 2;
 
 
    public enum AxisInputs
    {
-      Horizontal
+      Horizontal, Vertical
    }
    
 
-   public AxisInputs horizontalInput = AxisInputs.Horizontal; 
+   public AxisInputs horizontalInput = AxisInputs.Horizontal, verticalInput = AxisInputs.Vertical; 
                     
    private void Awake()
    {
@@ -27,15 +27,15 @@ public class CharacterMovementBehaviour2halfD : MonoBehaviour
 
    private void Update()
    {
-       movement.Set(Input.GetAxis(horizontalInput.ToString()), 
-                    0, 
-                    0);
+       movement.Set(Input.GetAxis(horizontalInput.ToString()),  
+                    0,
+                    Input.GetAxis(verticalInput.ToString()));
        movement *= speed;
        movement *= Time.deltaTime;
        charctrl.Move(movement);
        
      
-           if (Input.GetKeyDown(KeyCode.W) && jumpCount < jumpCountMax)
+           if (Input.GetKeyDown(KeyCode.Space) && jumpCount < jumpCountMax)
            {
                movement.y = jumpHeight;
                Debug.Log("Jump Method Complete");

@@ -7,7 +7,7 @@ public class CharacterMovementBehaviour2halfD : MonoBehaviour
    private Vector3 movement;
    public float speed;
    private float jumpHeight = 3f;
-   private float gravity = 5f;
+   public float gravity = 7f;
    private int jumpCount = 0;
    private int jumpCountMax = 2;
 

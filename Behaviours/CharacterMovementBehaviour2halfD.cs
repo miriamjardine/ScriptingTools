@@ -6,7 +6,7 @@ public class CharacterMovementBehaviour2halfD : MonoBehaviour
    private CharacterController charctrl;
    private Vector3 movement;
    public float speed;
-   private float jumpHeight = 3f;
+   private float jumpHeight = 2f;
    public float gravity = 7f;
    private int jumpCount = 0;
    private int jumpCountMax = 2;
@@ -14,11 +14,11 @@ public class CharacterMovementBehaviour2halfD : MonoBehaviour
 
    public enum AxisInputs
    {
-      Horizontal, Vertical
+      Horizontal
    }
    
 
-   public AxisInputs horizontalInput = AxisInputs.Horizontal, verticalInput = AxisInputs.Vertical; 
+   public AxisInputs horizontalInput = AxisInputs.Horizontal; 
                     
    private void Awake()
    {
@@ -29,7 +29,7 @@ public class CharacterMovementBehaviour2halfD : MonoBehaviour
    {
        movement.Set(Input.GetAxis(horizontalInput.ToString()),  
                     0,
-                    Input.GetAxis(verticalInput.ToString()));
+                    0);
        movement *= speed;
        movement *= Time.deltaTime;
        charctrl.Move(movement);

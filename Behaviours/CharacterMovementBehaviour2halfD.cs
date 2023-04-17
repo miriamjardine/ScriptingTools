@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(CharacterController))]
 public class CharacterMovementBehaviour2halfD : MonoBehaviour
@@ -10,6 +11,8 @@ public class CharacterMovementBehaviour2halfD : MonoBehaviour
    public float gravity = 7f;
    private int jumpCount = 0;
    private int jumpCountMax = 2;
+
+   public UnityEvent onQKey;
 
 
    public enum AxisInputs
@@ -33,9 +36,8 @@ public class CharacterMovementBehaviour2halfD : MonoBehaviour
        movement *= speed;
        movement *= Time.deltaTime;
        charctrl.Move(movement);
-       
-     
-           if (Input.GetKeyDown(KeyCode.Space) && jumpCount < jumpCountMax)
+
+       if (Input.GetKeyDown(KeyCode.Space) && jumpCount < jumpCountMax)
            {
                movement.y = jumpHeight;
                Debug.Log("Jump Method Complete");
@@ -49,7 +51,11 @@ public class CharacterMovementBehaviour2halfD : MonoBehaviour
                movement.y = 0;
                jumpCount = 0;
            }
-   }
+       
+
+    }
+   
+   
    
   
 

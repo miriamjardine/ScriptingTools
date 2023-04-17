@@ -7,13 +7,10 @@ public class TransformBehaviour : MonoBehaviour
     public void Transform(Collider other)
    {
        var transformObj = other.transform;
-<<<<<<< HEAD
-        transformObj.parent = transform;
+       transformObj.parent = transform;
         transformObj.position = transformObj.parent.position;
-=======
         transformObj.parent = transform; 
-        // transform.position = Vector3.zero;
->>>>>>> main
+
         otherRb.useGravity = false;
    }
 

@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class TransformBehaviour : MonoBehaviour
 {
@@ -14,13 +13,10 @@ public class TransformBehaviour : MonoBehaviour
         otherRb.useGravity = false;
    }
 
-    public void Update()
+    public void DropPickup()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            otherRb.useGravity=true;
-            transform.DetachChildren();
-        }
+        otherRb.useGravity=true;
+        transform.DetachChildren();
     }
 
 }

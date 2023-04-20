@@ -39,11 +39,11 @@ public class CharacterMovementBehaviour2halfD : MonoBehaviour
 
        if (Input.GetKeyDown(KeyCode.Space) && jumpCount < jumpCountMax)
            {
-               movement.y = jumpHeight;
+               movement.y = (jumpHeight+Time.deltaTime);
                Debug.Log("Jump Method Complete");
                jumpCount++;
            }
-           movement.y -= gravity*Time.deltaTime;
+           movement.y -= (gravity*Time.deltaTime);
            charctrl.Move(movement);
 
            if (charctrl.isGrounded)

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class TransformBehaviour : MonoBehaviour
@@ -19,4 +20,12 @@ public class TransformBehaviour : MonoBehaviour
         transform.DetachChildren();
     }
 
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            otherRb.useGravity=true;
+            transform.DetachChildren();
+        }
+    }
 }

@@ -20,12 +20,12 @@ public class ButtonManagement : MonoBehaviour
     
     private void Update()
     {
-        // Apply gravity to the movement vector
-        movement.y -= (gravity * Time.deltaTime) * 2;
-
         // Move the character controller using the movement vector
         charctrl.Move(movement * Time.deltaTime);
 
+        // Apply gravity to the movement vector
+        movement.y -= (gravity * Time.deltaTime) * 2;
+        
         // Reset the jump count if the character controller is grounded
         if (charctrl.isGrounded)
         {
@@ -41,6 +41,7 @@ public class ButtonManagement : MonoBehaviour
         movement += Vector3.right * speed * Time.deltaTime;
         charctrl.Move(movement);
         Debug.Log("Move right");
+        movement.y -= (gravity * Time.deltaTime) * 2;
     }
 
     public void onMoveLeft()
@@ -49,6 +50,7 @@ public class ButtonManagement : MonoBehaviour
         movement += Vector3.left * speed * Time.deltaTime;
         charctrl.Move(movement);
         Debug.Log("Move left");
+        movement.y -= (gravity * Time.deltaTime) * 2;
     }
 
     public void onJump()
